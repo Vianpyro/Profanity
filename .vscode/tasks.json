@@ -5,10 +5,16 @@
             "label": "Delete old Git branches",
             "type": "shell",
             "command": "git fetch --prune && git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D",
-            "problemMatcher": [],
             "presentation": {
                 "showReuseMessage": false
-            }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Setup Database",
+            "type": "shell",
+            "command": "mkdir -p database && cat database/*.sql | sqlite3 database/profanities.db",
+            "problemMatcher": []
         }
     ]
 }

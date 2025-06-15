@@ -1,13 +1,24 @@
 {
-    "name": "Template Development Container",
+    "name": "Profanity Development Container",
     "dockerFile": "Dockerfile",
     "customizations": {
         "settings": {
             "terminal.integrated.shell.linux": "/bin/bash"
         },
         "vscode": {
-            "extensions": ["esbenp.prettier-vscode"]
+            "extensions": [
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-python.python",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-sqlite"
+            ]
         }
+    },
+    "postCreateCommand": {
+        "setupDB": "mkdir -p database && cat database/*.sql | sqlite3 database/profanities.db",
+        "setupPython": "pip3 install --user -r requirements-dev.txt",
+        "setupExtensions": "sleep 15 && cd ~/.local/share/vscode-sqltools && npm install sqlite3"
     },
     "remoteUser": "vscode"
 }

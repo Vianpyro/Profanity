@@ -1,0 +1,41 @@
+INSERT INTO languages (english_name, native_name, iso_code)
+VALUES
+('Arabic', 'العربية', 'ar'),
+('Chinese', '中文', 'zh'),
+('Czech', 'čeština', 'cs'),
+('Danish', 'Dansk', 'da'),
+('Dutch', 'Nederlands', 'nl'),
+('English', 'English', 'en'),
+('Esperanto', 'Esperanto', 'eo'),
+('Filipino', 'Filipino', 'fil'),
+('Finnish', 'Suomi', 'fi'),
+('French', 'Français', 'fr'),
+('German', 'Deutsch', 'de'),
+('Hindi', 'हिन्दी', 'hi'),
+('Hungarian', 'Magyar', 'hu'),
+('Italian', 'Italiano', 'it'),
+('Japanese', '日本語', 'ja'),
+('Kabyle', NULL, 'kab'),
+('Klingon', 'tlh', 'tlh'),
+('Korean', '한국어', 'ko'),
+('Norwegian', 'Norsk', 'no'),
+('Persian', 'فارسی', 'fa'),
+('Polish', 'Polski', 'pl'),
+('Portuguese', 'Português', 'pt'),
+('Russian', 'Русский', 'ru'),
+('Spanish', 'Español', 'es'),
+('Swedish', 'Svenska', 'sv'),
+('Thai', 'ไทย', 'th'),
+('Turkish', 'Türkçe', 'tr');
+
+INSERT INTO categories (category_name, category_description)
+VALUES
+('Unknown', 'Default category for words with no specific classification'),
+('Discrimination', 'Words promoting discrimination or prejudice'),
+('Insults', 'Words used to insult or demean others'),
+('Political', 'Words related to political content or discussions'),
+('Religious', 'Words that are derogatory towards religious beliefs'),
+('Racial', 'Words that are derogatory towards specific racial or ethnic groups'),
+('Sexual', 'Words related to sexual content'),
+('Slang', 'Informal language or slang terms'),
+('Violent', 'Words related to violence or aggression');

@@ -1,3 +1,12 @@
+# Node modules build artifacts and dependencies
+node_modules/
+dist/
+package*.json
+
+# Database development files
+*.session.sql
+*.test.sql
+
 # Docs and meta
 README.md
 LICENSE
