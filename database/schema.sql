@@ -4,8 +4,6 @@ PRAGMA foreign_keys = ON;
 DROP TABLE IF EXISTS languages;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS profanities;
-DROP TABLE IF EXISTS projects;
-DROP TABLE IF EXISTS project_word_exceptions;
 DROP TABLE IF EXISTS replacements;
 DROP TABLE IF EXISTS logs;
 DROP TABLE IF EXISTS contextual_rules;
@@ -22,7 +20,7 @@ CREATE TABLE categories (
 );
 CREATE TABLE profanities (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    profanity_name TEXT NOT NULL,
+    profanity_name TEXT NOT NULL UNIQUE,
     language_id INTEGER NOT NULL,
     category_id INTEGER,
     severity_level TEXT CHECK (
@@ -30,7 +28,7 @@ CREATE TABLE profanities (
     ) DEFAULT 'unknown',
     is_phrase BOOLEAN NOT NULL DEFAULT 0,
     context_hint TEXT,
-    created_by_user BOOLEAN NOT NULL DEFAULT 0,
+    created_by_user BOOLEAN NOT NULL DEFAULT 1,
     is_enabled BOOLEAN NOT NULL DEFAULT 1,
     FOREIGN KEY (language_id) REFERENCES languages (id),
     FOREIGN KEY (category_id) REFERENCES categories (id)
@@ -38,11 +36,9 @@ CREATE TABLE profanities (
 CREATE TABLE replacements (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     profanity_id INTEGER NOT NULL,
-    language_id INTEGER NOT NULL,
     replacement_text TEXT,
     note TEXT,
-    FOREIGN KEY (profanity_id) REFERENCES profanities (id),
-    FOREIGN KEY (language_id) REFERENCES languages (id)
+    FOREIGN KEY (profanity_id) REFERENCES profanities (id)
 );
 CREATE TABLE logs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -1,5 +1,5 @@
 INSERT INTO languages (english_name, native_name, iso_code)
-VALUES
+VALUES 
 ('Arabic', 'العربية', 'ar'),
 ('Chinese', '中文', 'zh'),
 ('Czech', 'čeština', 'cs'),
