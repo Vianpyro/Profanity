@@ -15,6 +15,15 @@
             "type": "shell",
             "command": "mkdir -p database && cat database/*.sql | sqlite3 database/profanities.db",
             "problemMatcher": []
+        },
+        {
+            "label": "Start Flask API",
+            "type": "shell",
+            "command": "PYTHONPATH=. FLASK_APP=api/app.py FLASK_ENV=development flask run",
+            "presentation": {
+                "close": true
+            },
+            "problemMatcher": []
         }
     ]
 }
